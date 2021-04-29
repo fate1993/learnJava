@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"day01.sample"},{"l":"day0428.operator"},{"l":"day0428.remark"},{"l":"day0428.variable"}]
