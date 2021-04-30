@@ -36,5 +36,6 @@ public class IfEx6 {
 			grade = "F";
 		}
 		System.out.println("총점 : " + sum + " \n평균 : " + String.format("%,.1f", avg) + " \n학점 : " + grade);
+		
 	}
 }
