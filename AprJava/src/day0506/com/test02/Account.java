@@ -10,7 +10,7 @@ public class Account {
 	Account(String account, int balance, double interestRate){
 		this.account = account;
 		this.balance = balance;
-		this.interestRate = interestRate;
+		this.interestRate = interestRate * 0.01;
 	}
 	
 	void setAccount(String account) {
@@ -30,10 +30,10 @@ public class Account {
 	}
 	
 	void deposit(int money) {
-		this.balance+=money;
+		balance+=money;
 	}
 	
 	void withdraw(int money) {
-		this.balance-=money;
+		balance-=money;
 	}
 }
