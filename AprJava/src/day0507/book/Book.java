@@ -12,6 +12,11 @@ public class Book {
 		this.bookPrice = bookPrice;
 		this.bookDiscountRate = bookDiscountRate;
 	}
+	
+	double getDiscountBookPrice() {
+		return bookPrice * (1-bookDiscountRate*0.01);
+	}
+	
 	public String getBookName() {
 		return bookName;
 	}
@@ -33,6 +38,8 @@ public class Book {
 	
 	@Override
 	public String toString() {
-		return bookName+"\t"+bookPrice+"원\t"+bookDiscountRate+"%\t"+bookPrice*(1-bookDiscountRate*0.01)+"원";
+		return bookName+"\t"
+				+bookPrice+"원\t"+bookDiscountRate+"%\t"
+				+getDiscountBookPrice()+"원";
 	}
 }

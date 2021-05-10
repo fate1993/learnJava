@@ -16,25 +16,29 @@ return 변수;
 class Person {
 	private String name;
 	private int age;
-	private boolean run;
+	private int registrationNumber;
 	
-	
-	public boolean isRun() {
-		return run; // boolean은 값이 true/false 밖에 없기 때문에 get 대신 is를 붙임.
-	}
-	public void setRun(boolean run) {
-		this.run = run;
-	}
 	public String getName() {
-		return name; // name이라는 값을 꺼내옴.
+		return name;
 	}
 	public void setName(String name) {
-		this.name = name; // name에 값을 저장함.
+		this.name = name;
 	}
 	public int getAge() {
 		return age;
 	}
 	public void setAge(int age) {
 		this.age = age;
-	}	
+	}
+	public int getRegistrationNumber() {
+		return registrationNumber;
+	}
+	public void setRegistrationNumber(int registrationNumber) {
+		this.registrationNumber = registrationNumber;
+	}
+	
+	
+	
+	
+	
 }

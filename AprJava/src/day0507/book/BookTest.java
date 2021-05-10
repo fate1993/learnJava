@@ -8,11 +8,22 @@ public class BookTest {
 		Book Java = new Book("Java 2.0",40000,3.0) {};
 		Book JSP = new Book("JSP Servlet",60000,6.0) {};
 		
-		System.out.println("책이름\t\t"+"가격\t"+"할인율\t"+"할인후금액\t");
+		Book[] book = {SQL,Java,JSP};
+		
+		System.out.println("책이름\t\t가격\t할인율\t할인후금액");
 		System.out.println("------------------------------------------");
+		
+		for(Book b : book) {
+			System.out.println(b);
+			//System.out.println(SQL);
+			//System.out.println(Java);
+			//System.out.println(JSP);
+		}
+		
+		/*
 		System.out.println(SQL.toString());
 		System.out.println(Java.toString());
 		System.out.println(JSP.toString());
-		// 각각의 Book 객체의 정보를 실행 결과 예와 같이 출력한다
+		*/
 	}
 }

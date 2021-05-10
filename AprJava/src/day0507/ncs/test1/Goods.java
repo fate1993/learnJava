@@ -5,9 +5,9 @@ public class Goods {
 	int price;
 	int quantity;
 	
-	Goods() {}
-	Goods(String name, int price, int quantity) {
-		super();
+	
+	public Goods() {}
+	public Goods(String name, int price, int quantity) {
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
@@ -34,6 +34,11 @@ public class Goods {
 	
 	@Override
 	public String toString() {
+		return getName()+ ", " + getPrice() + "원, " + getQuantity() + "개"+"\n"+"총 구매 가격: "+(getPrice()*getQuantity())+" 원";
+	} 
+	
+	/*@Override
+	public String toString() {
 		return name+", "+price+" 원, "+quantity+"개"+"\n"+"총 구매 가격: "+(price*quantity)+" 원";
-	}
+	}*/
 }
