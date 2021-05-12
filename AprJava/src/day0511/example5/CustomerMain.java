@@ -5,12 +5,12 @@ public class CustomerMain {
 	public static void main(String[] args) {
 		Customer b = new Customer();
 		Noodle nd = new Noodle();
-		Rice c = new Rice();
+		Rice rc = new Rice();
 		
 		// Customer의 order 메서드를 이용해 Noodle 주문
 		b.order(nd);
 		// Customer의 order 메서드를 이용해 Rice 주문
-		b.order(c);
+		b.order(rc);
 		
 		// Customer의 현재 남은 돈 출력
 		System.out.println("현재 남은 돈은 "+b.money+"원 입니다.");

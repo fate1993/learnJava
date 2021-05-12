@@ -1,6 +1,7 @@
 package day0511.example7;
 
-public abstract class Employee {
+abstract class Employee {
+	
 	 String name;
 	 int number;
 	 String department; // 부서
