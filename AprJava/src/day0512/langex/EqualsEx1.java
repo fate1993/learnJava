@@ -1,7 +1,5 @@
 package day0512.langex;
 
-
-
 class EqualsEx1 {
 	public static void main(String[] args) {
 		Value v1 = new Value(10);

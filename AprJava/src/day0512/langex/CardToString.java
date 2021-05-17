@@ -4,10 +4,6 @@ class Card {
 	String kind;
 	int number;
 
-	Card() {
-		this("SPADE", 1);
-	}
-
 	Card(String kind, int number) {
 		this.kind = kind;
 		this.number = number;
@@ -15,17 +11,23 @@ class Card {
 	//toString() 오버라이딩
 
 	@Override
-	public String toString() { //정말 자주 사용하는 Object 클래스의 toString() 메서드
-		return "kind=" + kind + ", number=" + number;
+	public String toString() {
+		return "Card [kind=" + kind + ", number=" + number + "]";
 	}
 }
 
 class CardToString {
 	public static void main(String[] args) {
-		Card c1 = new Card();
-		Card c2 = new Card();
-
-		System.out.println(c1);
-		System.out.println(c2.toString());
+		 Card c1 = new Card("SPADE", 1); // 객체 생성
+	        Card c2 = new Card("SPADE", 2);
+	        Card c3 = new Card("SPADE", 3);
+	        Card c4 = new Card("SPADE", 4);
+	        Card c5 = new Card("SPADE", 5);
+	        
+	       System.out.println(c1.toString());
+	       System.out.println(c2.toString());
+	       System.out.println(c3.toString());
+	       System.out.println(c4.toString());
+	       System.out.println(c5.toString());
 	}
 }
