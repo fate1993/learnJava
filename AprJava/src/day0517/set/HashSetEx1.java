@@ -1,7 +1,9 @@
-package day0514.list;
-import java.util.*;
+package day0517.set;
+// HashSet은 주머니에 막 집어 넣는다고 보면 됨
+import java.util.HashSet;
+import java.util.Set;
 
-class HashSetEx1 {
+public class HashSetEx1 {
 	public static void main(String[] args) {
 		Object[] objArr = { "1", 1, "2", "2", "3", "3", "4", "4", "4" };
 		Set set = new HashSet(); // HashSet() 중복값을 제거
