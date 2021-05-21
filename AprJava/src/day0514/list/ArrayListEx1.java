@@ -6,7 +6,7 @@ import java.util.List;
 public class ArrayListEx1 {
 
 	public static void main(String[] args) {
-		ArrayList<String> list = new ArrayList<>(3);
+		ArrayList<String> list = new ArrayList<>();
 		
 		list.add("BTS");
 		list.add("수지");
