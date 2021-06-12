@@ -13,7 +13,7 @@ class StreamEx4 {
 //		Stream<Stream<String>> strStrmStrm = strArrStrm.map(Arrays::stream);
 		Stream<String> strStrm = strArrStrm.flatMap(Arrays::stream);
 
-		strStrm.map(String::toLowerCase)
+		strStrm.map(String::toLowerCase) // 소문자로 바꿈
 			   .distinct()
 			   .sorted()
 			   .forEach(System.out::println);
@@ -24,8 +24,8 @@ class StreamEx4 {
 			"Do or do not There is no try",
 		};
 
-		Stream<String> lineStream = Arrays.stream(lineArr);
-		lineStream.flatMap(line -> Stream.of(line.split(" +")))
+		Stream<String> lineStream = Arrays.stream(lineArr); // 두 개의 문자열을 하나의 스트림으로
+		lineStream.flatMap(line -> Stream.of(line.split(" +"))) // _+ 공백을 기준으로 나눈다
 				  .map(String::toLowerCase)
 				  .distinct()
 				  .sorted()

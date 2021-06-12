@@ -5,17 +5,17 @@ import java.util.stream.*;
 class OptionalEx1 {
 	public static void main(String[] args) {
 		Optional<String>  optStr = Optional.of("abcde");
-		Optional<Integer> optInt = optStr.map(String::length);
+		Optional<Integer> optInt = optStr.map(String::length); // 배열의 길이 5 저장
 		System.out.println("optStr="+optStr.get());
 		System.out.println("optInt="+optInt.get());
 
 		int result1 = Optional.of("123")
-							  .filter(x->x.length() >0)
-							  .map(Integer::parseInt).get();
+							  .filter(x->x.length() >0) // 문자가 있으면
+							  .map(Integer::parseInt).get(); // int형으로 형변환
 
 		int result2 = Optional.of("")
-							  .filter(x->x.length() >0)
-							  .map(Integer::parseInt).orElse(-1);
+							  .filter(x->x.length() >0) // 필터 통과 못함
+							  .map(Integer::parseInt).orElse(-1); // orElse >> null이면 -1. 만약 get()으로 꺼내오면 예외 발생
 
 		System.out.println("result1="+result1);
 		System.out.println("result2="+result2);

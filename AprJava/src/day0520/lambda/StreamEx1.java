@@ -4,7 +4,7 @@ import java.util.stream.*;
 
 class StreamEx1 {
 	public static void main(String[] args) {
-	     Stream<Student> studentStream = Stream.of(
+	     Stream<Student> studentStream = Stream.of( // Stream으로 객체를 하나씩 접근
 							new Student("이자바", 3, 300),
 							new Student("김자바", 1, 200),
 							new Student("안자바", 2, 100),

@@ -8,7 +8,7 @@ class Student8 {
 	String name;
 	boolean isMale; // 성별
 	int hak;		// 학년
-	int ban;		// 반
+	int ban;		// 반 기준
 	int score;
 
 	Student8(String name, boolean isMale, int hak, int ban, int score) { 
@@ -31,7 +31,7 @@ class Student8 {
 
 	enum Level {
 		HIGH, MID, LOW
-	}
+	} // 0, 1, 2 순서. HIGH >> MID >> LOW 순서로 정렬됨(트리셋)
 }
 //groupingBy 같은 값을 가지고 있는 데이터끼리 그룹으로 묶어줌
 class StreamEx8 {
@@ -57,34 +57,37 @@ class StreamEx8 {
 			new Student8("강지미", false, 2, 3, 150),	
 			new Student8("이자바", true,  2, 3, 200)	
 		};
-
+		// 반 별 그룹화
 		System.out.printf("1. 단순그룹화(반별로 그룹화)%n");
 		Map<Integer, List<Student8>> stuByBan = Stream.of(stuArr)
 				                                     .collect(groupingBy(Student8::getBan));
-		
+		// 같은 반에 있는 애들을 키로. 해당 반을 리스트로 묶어서 가져옴
 		for(List<Student8> ban : stuByBan.values()) {
 			for(Student8 s : ban) {
 				System.out.println(s);
 			}
 		}
-
+		// 성적별 그룹화
 		System.out.printf("%n2. 단순그룹화(성적별로 그룹화)%n");
 		Map<Student8.Level, List<Student8>> stuByLevel = Stream.of(stuArr)
 				.collect(groupingBy(s-> {
 						 if(s.getScore() >= 200) return Student8.Level.HIGH;
+						 // 성적이 HIGH(키 값). HIGH라는 키에 리스트를 만들어서 학생을 저장. 
 					else if(s.getScore() >= 100) return Student8.Level.MID;
 					else                         return Student8.Level.LOW;
 				}));
 
 		TreeSet<Student8.Level> keySet = new TreeSet<>(stuByLevel.keySet());
+		// 트리셋으로 만들어서 정렬
 
 		for(Student8.Level key : keySet) {
 			System.out.println("["+key+"]");
+			
 
 			for(Student8 s : stuByLevel.get(key))
 				System.out.println(s);
 			System.out.println();
-		}
+		} // HIGH 키, MID 키, LOW 키 순으로 반복해서 출력해줌
 
 		System.out.printf("%n3. 단순그룹화 + 통계(성적별 학생수)%n");
 		Map<Student8.Level, Long> stuCntByLevel = Stream.of(stuArr)
@@ -92,7 +95,7 @@ class StreamEx8 {
 						 if(s.getScore() >= 200) return Student8.Level.HIGH;
 					else if(s.getScore() >= 100) return Student8.Level.MID;
 					else                         return Student8.Level.LOW;
-				}, counting()));
+				}, counting())); // counting. 해당 레벨에 대해 갯수만 뽑아서 가져옴
 
 		for(Student8.Level key : stuCntByLevel.keySet())
 			System.out.printf("[%s] - %d명, ", key, stuCntByLevel.get(key));
@@ -110,7 +113,7 @@ class StreamEx8 {
           Stream.of(stuArr)
 				.collect(groupingBy(Student8::getHak,
 						 groupingBy(Student8::getBan)
-				));
+				)); 
 
 		for(Map<Integer, List<Student8>> hak : stuByHakAndBan.values()) {
 			for(List<Student8> ban : hak.values()) {
@@ -126,7 +129,9 @@ class StreamEx8 {
 						 groupingBy(Student8::getBan,
 							collectingAndThen(
 								maxBy(comparingInt(Student8::getScore)),
+								// 최대값 가지고 있는 객체 꺼내고
 								Optional::get
+								// 옵셔널 타입. 원래인 스튜던트 타입으로 가져올 수 있도록함 
 							)
 						)
 				));

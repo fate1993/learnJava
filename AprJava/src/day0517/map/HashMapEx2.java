@@ -17,8 +17,9 @@ public class HashMapEx2 {
 		Set set = map.entrySet(); // key, value 값 모두 출력 필요한 경우
 		Iterator it = set.iterator(); // map은 iterator로 바로 바꿀 수 없음. set으로 바꿔서 처리해야함
 		
-		while(it.hasNext()) {
-			Map.Entry e = (Map.Entry)it.next(); // Map.Entry로 형변환?
+		while(it.hasNext()) { // 요소가 있으면 true. >> 반복
+			Map.Entry e = (Map.Entry)it.next(); 
+			// Entry 타입으로 e 객체 만들기. e 객체로 데이터를 뽑아오기 위해.
 			System.out.println("이름: "+ e.getKey() + ", 점수: " + e.getValue());
 		}
 		

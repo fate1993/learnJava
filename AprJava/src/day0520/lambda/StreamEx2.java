@@ -1,7 +1,7 @@
 package day0520.lambda;
 import java.io.*;
 import java.util.stream.*;
-
+// map() 저장된 값 중에서 원하는 필드만 뽑아내거나 특정 형태로 변환시 사용
 class StreamEx2 {
 	public static void main(String[] args) {
 		File[] fileArr = { new File("Ex1.java"), new File("Ex1.bak"),
