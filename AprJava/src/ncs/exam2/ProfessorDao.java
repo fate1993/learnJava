@@ -32,6 +32,8 @@ public class ProfessorDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			ProfessorMain.close(null, con, pstmt);
 		}
 		return i;
 	}
@@ -43,8 +45,6 @@ public class ProfessorDao {
 			pstmt = con.prepareStatement("update professor set sal = sal + (sal * ?)");
 			pstmt.setDouble(1, rate);
 			pstmt.executeUpdate();
-			
-		 
 	}
 	
 	public int deleteProfessor(ConnectionPool cp, int profno, String name)  throws IOException, SQLException{
